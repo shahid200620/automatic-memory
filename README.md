@@ -1,82 +1,79 @@
-\# Binary Classification using Deep Neural Network (TensorFlow/Keras)
+# 🧠 Binary Classification using Deep Neural Network (TensorFlow/Keras)
 
+## 📌 Project Overview
+This project demonstrates the complete end-to-end workflow of building a **Deep Neural Network (DNN)** for a **binary classification problem** using **TensorFlow and Keras**.  
+It covers data preprocessing, exploratory data analysis (EDA), model design, training with callbacks, evaluation using multiple metrics, and result visualization.
 
+The objective is to develop a **robust, well-documented, and evaluatable deep learning solution** following best practices.
 
-\## Overview
+---
 
-This project implements a Deep Neural Network (DNN) using TensorFlow and Keras to solve a binary classification problem. The workflow includes data preprocessing, exploratory data analysis, model training with callbacks, and rigorous evaluation.
+## 📂 Dataset Description
+- Total Samples: **267**
+- Input Features: **44 numerical features**
+- Target Variable: **Binary (0 / 1)**  
+- Note: The dataset did not contain explicit column headers.  
+  The **last column was treated as the target variable**.
 
+---
 
+## 🔍 Exploratory Data Analysis (EDA)
+The EDA process included:
+- Feature distribution analysis
+- Correlation heatmap
+- Feature vs target relationship analysis
 
-\## Dataset
+Key observations:
+- Features required scaling due to different ranges
+- No extreme multicollinearity was observed
+- The dataset was suitable for binary classification using a neural network
 
-The dataset consists of 267 samples with 44 numerical features. The final column represents the binary target variable. Since the dataset did not include explicit headers, the last column was treated as the target.
+---
 
+## 🏗️ Model Architecture
+The neural network was built using the **Sequential API** in Keras.
 
+**Architecture Details:**
+- Input Layer: 44 features
+- Hidden Layer 1: 64 neurons (ReLU)
+- Hidden Layer 2: 32 neurons (ReLU)
+- Hidden Layer 3: 16 neurons (ReLU)
+- Output Layer: 1 neuron (Sigmoid)
 
-\## Model Architecture
+**Loss Function:** Binary Crossentropy  
+**Optimizer:** Adam  
+**Metric:** Accuracy  
 
-\- Sequential Neural Network
+---
 
-\- 3 Hidden Layers with ReLU activation (64, 32, 16 neurons)
+## ⚙️ Training Strategy
+- Data Split:
+  - 60% Training
+  - 20% Validation
+  - 20% Test
+- Feature Scaling: `StandardScaler`
+- Callbacks Used:
+  - **EarlyStopping** (prevents overfitting)
+  - **ModelCheckpoint** (saves best model based on validation loss)
 
-\- Output layer with 1 neuron and Sigmoid activation
+---
 
-\- Binary Crossentropy loss
+## 📊 Model Evaluation
+The model was evaluated on a **held-out test set** using the following metrics:
 
-\- Adam optimizer
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- ROC-AUC
 
+Additionally:
+- ROC Curve plotted
+- Training & Validation loss curves visualized
+- Training & Validation accuracy curves visualized
 
+The model achieved **strong generalization performance**, meeting the expected evaluation criteria.
 
-\## Training Strategy
+---
 
-\- Data split: 60% Training, 20% Validation, 20% Testing
-
-\- Feature scaling using StandardScaler
-
-\- EarlyStopping to prevent overfitting
-
-\- ModelCheckpoint to save the best-performing model
-
-
-
-\## Evaluation Metrics
-
-The model was evaluated on a held-out test set using:
-
-\- Accuracy
-
-\- Precision
-
-\- Recall
-
-\- F1-score
-
-\- ROC-AUC
-
-
-
-The trained model achieved strong performance, demonstrating effective generalization.
-
-
-
-\## How to Run
-
-1\. Create and activate a virtual environment
-
-2\. Install dependencies from `requirements.txt`
-
-3\. Run the Jupyter Notebook `binary\_classification\_dnn.ipynb`
-
-
-
-\## Files
-
-\- `binary\_classification\_dnn.ipynb` — Main notebook
-
-\- `model/best\_model.h5` — Saved model
-
-\- `requirements.txt` — Dependencies
-
-
-
+## 📁 Project Structure
